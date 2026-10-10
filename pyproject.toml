@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qtick"
+version = "0.3.0"
+description = "RL-driven quantum tuning in a multiprocessing CPU simulator — QTick platform"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Abhishek", email = "abhis@example.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: System :: Operating Systems Kernels",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "flask>=2.3",
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+]
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff"]
+
+[project.urls]
+Homepage = "https://github.com/abhis/qtick"
+Repository = "https://github.com/abhis/qtick"
+Issues = "https://github.com/abhis/qtick/issues"
+
+[project.entry-points]
+console_scripts = [
+    "qtick-sim = src.simulator.scheduler:main",
+    "qtick-train = scripts.train:main",
+    "qtick-train-dqn = scripts.train_dqn:main",
+    "qtick-train-joint = scripts.train_joint:main",
+    "qtick-benchmark = scripts.benchmark:main",
+    "qtick-platform-demo = scripts.run_platform_demo:main",
+    "qtick-dashboard = webapp.app:main",
+    "qtick-policy-server = deploy.sched_ext.policy_server:main",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "scripts*", "webapp*", "deploy*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I", "UP", "B", "C4", "W"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]

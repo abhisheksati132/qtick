@@ -1,0 +1,53 @@
+{
+  "cpu=0.2/poisson": {
+    "DQN-QT+RLD (Ours)": 265.5,
+    "RL-QT+RLD (Ours)": 237.9,
+    "RR q64+RLD": 236.1,
+    "DQN-QT": 314.9,
+    "RL-QT (tabular)": 282.0,
+    "Linux CFS": 675.9,
+    "DRL-QT (2023)": 291.7,
+    "DRL-Dispatch (2023)": 224.7,
+    "MARL-Sched (2023)": 209.3,
+    "DABRR-heuristic": 372.2,
+    "RR q=16": 274.5,
+    "RR q=8": 317.1,
+    "RR q=4": 415.8,
+    "RR q=2": 606.3,
+    "RR-oracle-q": 267.8
+  },
+  "cpu=0.5/burst": {
+    "DQN-QT+RLD (Ours)": 571.9,
+    "RL-QT+RLD (Ours)": 513.1,
+    "RR q64+RLD": 466.4,
+    "DQN-QT": 666.2,
+    "RL-QT (tabular)": 677.4,
+    "Linux CFS": 1452.5,
+    "DRL-QT (2023)": 638.1,
+    "DRL-Dispatch (2023)": 668.5,
+    "MARL-Sched (2023)": 592.3,
+    "DABRR-heuristic": 733.3,
+    "RR q=16": 680.8,
+    "RR q=8": 775.2,
+    "RR q=4": 984.5,
+    "RR q=2": 1400.6,
+    "RR-oracle-q": 645.1
+  },
+  "cpu=0.8/uniform": {
+    "DQN-QT+RLD (Ours)": 1248.8,
+    "RL-QT+RLD (Ours)": 1232.3,
+    "RR q64+RLD": 1162.0,
+    "DQN-QT": 1488.2,
+    "RL-QT (tabular)": 1534.2,
+    "Linux CFS": 2611.0,
+    "DRL-QT (2023)": 1508.1,
+    "DRL-Dispatch (2023)": 1554.2,
+    "MARL-Sched (2023)": 1516.6,
+    "DABRR-heuristic": 1537.5,
+    "RR q=16": 1590.1,
+    "RR q=8": 1766.8,
+    "RR q=4": 2133.1,
+    "RR q=2": 2865.5,
+    "RR-oracle-q": 1478.3
+  }
+}

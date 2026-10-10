@@ -1,0 +1,92 @@
+{
+  "DQN-QT+RLD (Ours) < RR q=16": {
+    "p_value": 4.485199767145787e-09,
+    "significant_0.01": true,
+    "effect_r": 0.734,
+    "median_diff": 109.07
+  },
+  "RL-QT+RLD (Ours) < RR q=16": {
+    "p_value": 3.4585667663122877e-09,
+    "significant_0.01": true,
+    "effect_r": 0.738,
+    "median_diff": 146.8
+  },
+  "DQN-QT < RR q=16": {
+    "p_value": 0.06399667169372592,
+    "significant_0.01": false,
+    "effect_r": 0.216,
+    "median_diff": 3.8
+  },
+  "RL-QT (tabular) < RR q=16": {
+    "p_value": 0.030350700749153248,
+    "significant_0.01": false,
+    "effect_r": 0.266,
+    "median_diff": 6.92
+  },
+  "DRL-QT (2023) < RR q=16": {
+    "p_value": 3.9734838503946435e-06,
+    "significant_0.01": true,
+    "effect_r": 0.599,
+    "median_diff": 31.96
+  },
+  "DQN-QT+RLD (Ours) < RR-oracle-q": {
+    "p_value": 8.748398379054834e-07,
+    "significant_0.01": true,
+    "effect_r": 0.634,
+    "median_diff": 59.18
+  },
+  "RL-QT+RLD (Ours) < RR-oracle-q": {
+    "p_value": 3.110358992586271e-08,
+    "significant_0.01": true,
+    "effect_r": 0.701,
+    "median_diff": 116.14
+  },
+  "DQN-QT < RR-oracle-q": {
+    "p_value": 0.9999998173583405,
+    "significant_0.01": false,
+    "effect_r": 0.058,
+    "median_diff": -22.41
+  },
+  "RL-QT (tabular) < RR-oracle-q": {
+    "p_value": 0.9999960265161496,
+    "significant_0.01": false,
+    "effect_r": 0.597,
+    "median_diff": -22.62
+  },
+  "DRL-QT (2023) < RR-oracle-q": {
+    "p_value": 0.999808707345216,
+    "significant_0.01": false,
+    "effect_r": 0.487,
+    "median_diff": -12.66
+  },
+  "DQN-QT+RLD (Ours) < DABRR-heuristic": {
+    "p_value": 1.7763568394002505e-15,
+    "significant_0.01": true,
+    "effect_r": 0.869,
+    "median_diff": 150.32
+  },
+  "RL-QT+RLD (Ours) < DABRR-heuristic": {
+    "p_value": 4.0041214788288926e-10,
+    "significant_0.01": true,
+    "effect_r": 0.769,
+    "median_diff": 210.59
+  },
+  "DQN-QT < DABRR-heuristic": {
+    "p_value": 2.4558133304708463e-12,
+    "significant_0.01": true,
+    "effect_r": 0.827,
+    "median_diff": 55.54
+  },
+  "RL-QT (tabular) < DABRR-heuristic": {
+    "p_value": 1.4195803732519607e-07,
+    "significant_0.01": true,
+    "effect_r": 0.672,
+    "median_diff": 57.83
+  },
+  "DRL-QT (2023) < DABRR-heuristic": {
+    "p_value": 4.030198397231288e-11,
+    "significant_0.01": true,
+    "effect_r": 0.798,
+    "median_diff": 73.45
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "per_trace": {
+    "alibaba_2018": {
+      "QTick (DQN+RLD)": {
+        "wait": 736.0,
+        "ta": 776.7,
+        "p95_ta": 2899.8,
+        "cs": 82,
+        "util": 0.963,
+        "energy_wh": 214.9934,
+        "composite": 1553.7
+      },
+      "QTick (Tab+RLD)": {
+        "wait": 853.5,
+        "ta": 898.2,
+        "p95_ta": 3549.1,
+        "cs": 873,
+        "util": 0.902,
+        "energy_wh": 218.9178,
+        "composite": 2188.2
+      },
+      "QTick (q64+RLD)": {
+        "wait": 1303.1,
+        "ta": 1343.8,
+        "p95_ta": 3277.5,
+        "cs": 74,
+        "util": 0.958,
+        "energy_wh": 215.2717,
+        "composite": 2684.0
+      },
+      "Linux CFS": {
+        "wait": 1642.5,
+        "ta": 1701.1,
+        "p95_ta": 4860.8,
+        "cs": 3643,
+        "util": 0.67,
+        "energy_wh": 240.38,
+        "composite": 5165.1
+      },
+      "DRL-QT (2023)": {
+        "wait": 1228.7,
+        "ta": 1271.6,
+        "p95_ta": 3544.0,
+        "cs": 509,
+        "util": 0.902,
+        "energy_wh": 218.9339,
+        "composite": 2754.8
+      },
+      "DRL-Dispatch": {
+        "wait": 1111.3,
+        "ta": 1153.8,
+        "p95_ta": 3478.8,
+        "cs": 419,
+        "util": 0.927,
+        "energy_wh": 217.22,
+        "composite": 2474.6
+      },
+      "MARL-Sched": {
+        "wait": 1108.5,
+        "ta": 1150.9,
+        "p95_ta": 3286.0,
+        "cs": 413,
+        "util": 0.93,
+        "energy_wh": 217.027,
+        "composite": 2465.9
+      },
+      "DABRR (heuristic)": {
+        "wait": 1320.1,
+        "ta": 1362.8,
+        "p95_ta": 3235.3,
+        "cs": 476,
+        "util": 0.867,
+        "energy_wh": 221.4064,
+        "composite": 2921.0
+      },
+      "Static RR (q=16)": {
+        "wait": 1196.0,
+        "ta": 1238.4,
+        "p95_ta": 3411.9,
+        "cs": 420,
+        "util": 0.915,
+        "energy_wh": 218.0021,
+        "composite": 2644.4
+      },
+      "Static RR (q=8)": {
+        "wait": 1234.0,
+        "ta": 1278.9,
+        "p95_ta": 3599.5,
+        "cs": 915,
+        "util": 0.865,
+        "energy_wh": 221.5489,
+        "composite": 2970.5
+      }
+    },
+    "azure_vm_2020": {
+      "QTick (DQN+RLD)": {
+        "wait": 1601.3,
+        "ta": 1640.0,
+        "p95_ta": 3321.3,
+        "cs": 53,
+        "util": 0.991,
+        "energy_wh": 203.5493,
+        "composite": 3267.8
+      },
+      "QTick (Tab+RLD)": {
+        "wait": 1387.4,
+        "ta": 1426.8,
+        "p95_ta": 3461.5,
+        "cs": 191,
+        "util": 0.974,
+        "energy_wh": 204.5265,
+        "composite": 2909.7
+      },
+      "QTick (q64+RLD)": {
+        "wait": 1307.1,
+        "ta": 1345.8,
+        "p95_ta": 3224.2,
+        "cs": 53,
+        "util": 0.983,
+        "energy_wh": 203.969,
+        "composite": 2679.4
+      },
+      "Linux CFS": {
+        "wait": 2332.3,
+        "ta": 2388.2,
+        "p95_ta": 4928.3,
+        "cs": 3486,
+        "util": 0.686,
+        "energy_wh": 227.554,
+        "composite": 6463.5
+      },
+      "DRL-QT (2023)": {
+        "wait": 1555.1,
+        "ta": 1595.7,
+        "p95_ta": 3428.3,
+        "cs": 430,
+        "util": 0.944,
+        "energy_wh": 206.2264,
+        "composite": 3365.8
+      },
+      "DRL-Dispatch": {
+        "wait": 1618.6,
+        "ta": 1659.1,
+        "p95_ta": 3480.9,
+        "cs": 394,
+        "util": 0.946,
+        "energy_wh": 206.1519,
+        "composite": 3474.7
+      },
+      "MARL-Sched": {
+        "wait": 1824.9,
+        "ta": 1865.3,
+        "p95_ta": 3550.3,
+        "cs": 392,
+        "util": 0.942,
+        "energy_wh": 206.3383,
+        "composite": 3886.2
+      },
+      "DABRR (heuristic)": {
+        "wait": 1520.2,
+        "ta": 1559.9,
+        "p95_ta": 3333.1,
+        "cs": 263,
+        "util": 0.929,
+        "energy_wh": 207.1298,
+        "composite": 3211.6
+      },
+      "Static RR (q=16)": {
+        "wait": 1579.8,
+        "ta": 1620.3,
+        "p95_ta": 3416.8,
+        "cs": 394,
+        "util": 0.937,
+        "energy_wh": 206.649,
+        "composite": 3397.1
+      },
+      "Static RR (q=8)": {
+        "wait": 1651.2,
+        "ta": 1694.0,
+        "p95_ta": 3610.9,
+        "cs": 866,
+        "util": 0.885,
+        "energy_wh": 210.044,
+        "composite": 3778.2
+      }
+    },
+    "google_borg_2019": {
+      "QTick (DQN+RLD)": {
+        "wait": 767.3,
+        "ta": 789.1,
+        "p95_ta": 1832.4,
+        "cs": 24,
+        "util": 0.968,
+        "energy_wh": 115.4291,
+        "composite": 1568.5
+      },
+      "QTick (Tab+RLD)": {
+        "wait": 548.2,
+        "ta": 570.2,
+        "p95_ta": 1660.9,
+        "cs": 74,
+        "util": 0.939,
+        "energy_wh": 116.4064,
+        "composite": 1155.4
+      },
+      "QTick (q64+RLD)": {
+        "wait": 584.1,
+        "ta": 606.0,
+        "p95_ta": 1779.0,
+        "cs": 25,
+        "util": 0.939,
+        "energy_wh": 116.3866,
+        "composite": 1202.6
+      },
+      "Linux CFS": {
+        "wait": 1145.0,
+        "ta": 1176.7,
+        "p95_ta": 2799.4,
+        "cs": 2021,
+        "util": 0.681,
+        "energy_wh": 128.5633,
+        "composite": 3332.2
+      },
+      "DRL-QT (2023)": {
+        "wait": 600.1,
+        "ta": 623.1,
+        "p95_ta": 1867.3,
+        "cs": 276,
+        "util": 0.908,
+        "energy_wh": 117.4916,
+        "composite": 1361.2
+      },
+      "DRL-Dispatch": {
+        "wait": 658.8,
+        "ta": 681.5,
+        "p95_ta": 1934.6,
+        "cs": 201,
+        "util": 0.914,
+        "energy_wh": 117.263,
+        "composite": 1440.7
+      },
+      "MARL-Sched": {
+        "wait": 617.8,
+        "ta": 640.5,
+        "p95_ta": 1578.9,
+        "cs": 200,
+        "util": 0.908,
+        "energy_wh": 117.4818,
+        "composite": 1358.2
+      },
+      "DABRR (heuristic)": {
+        "wait": 689.2,
+        "ta": 712.6,
+        "p95_ta": 1730.7,
+        "cs": 345,
+        "util": 0.841,
+        "energy_wh": 120.1184,
+        "composite": 1574.4
+      },
+      "Static RR (q=16)": {
+        "wait": 627.7,
+        "ta": 650.3,
+        "p95_ta": 1801.6,
+        "cs": 201,
+        "util": 0.917,
+        "energy_wh": 117.1718,
+        "composite": 1378.5
+      },
+      "Static RR (q=8)": {
+        "wait": 614.5,
+        "ta": 638.5,
+        "p95_ta": 1966.2,
+        "cs": 458,
+        "util": 0.868,
+        "energy_wh": 119.0123,
+        "composite": 1482.0
+      }
+    }
+  },
+  "mean_composite": {
+    "QTick (DQN+RLD)": 2130.0,
+    "QTick (Tab+RLD)": 2084.4,
+    "QTick (q64+RLD)": 2188.7,
+    "Linux CFS": 4986.9,
+    "DRL-QT (2023)": 2493.9,
+    "DRL-Dispatch": 2463.3,
+    "MARL-Sched": 2570.1,
+    "DABRR (heuristic)": 2569.0,
+    "Static RR (q=16)": 2473.3,
+    "Static RR (q=8)": 2743.6
+  },
+  "summary": [
+    [
+      "QTick (Tab+RLD)",
+      929.7,
+      2890.5,
+      379.3,
+      179.95,
+      2084.4
+    ],
+    [
+      "QTick (DQN+RLD)",
+      1034.9,
+      2684.5,
+      53,
+      177.991,
+      2130.0
+    ],
+    [
+      "QTick (q64+RLD)",
+      1064.8,
+      2760.2,
+      50.7,
+      178.542,
+      2188.7
+    ],
+    [
+      "DRL-Dispatch",
+      1129.6,
+      2964.8,
+      338,
+      180.212,
+      2463.3
+    ],
+    [
+      "Static RR (q=16)",
+      1134.5,
+      2876.8,
+      338.3,
+      180.608,
+      2473.3
+    ],
+    [
+      "DRL-QT (2023)",
+      1128.0,
+      2946.5,
+      405,
+      180.884,
+      2493.9
+    ],
+    [
+      "DABRR (heuristic)",
+      1176.5,
+      2766.4,
+      361.3,
+      182.885,
+      2569.0
+    ],
+    [
+      "MARL-Sched",
+      1183.7,
+      2805.1,
+      335,
+      180.282,
+      2570.1
+    ],
+    [
+      "Static RR (q=8)",
+      1166.6,
+      3058.9,
+      746.3,
+      183.535,
+      2743.6
+    ],
+    [
+      "Linux CFS",
+      1706.6,
+      4196.2,
+      3050,
+      198.832,
+      4986.9
+    ]
+  ]
+}

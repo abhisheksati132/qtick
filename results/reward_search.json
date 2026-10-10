@@ -1,0 +1,26 @@
+{
+  "(3.0, 1.0, 0.03, 0.0)": {
+    "synthetic": 862.2,
+    "ctc": 1363.8,
+    "ctc_switches": 115,
+    "n_actions_used": 7
+  },
+  "(3.0, 1.0, 0.03, 0.001)": {
+    "synthetic": 897.2,
+    "ctc": 1623.1,
+    "ctc_switches": 307,
+    "n_actions_used": 7
+  },
+  "(3.0, 1.0, 0.06, 0.001)": {
+    "synthetic": 1342.5,
+    "ctc": 1243.8,
+    "ctc_switches": 181,
+    "n_actions_used": 7
+  },
+  "(2.0, 1.0, 0.03, 0.002)": {
+    "synthetic": 948.6,
+    "ctc": 1042.1,
+    "ctc_switches": 77,
+    "n_actions_used": 7
+  }
+}

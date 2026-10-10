@@ -1,0 +1,21 @@
+{"ts": 1787671512.92088, "name": "dqn-vs-tabular", "params": {"episodes": 300}, "metrics": {"dqn": 1410.95, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1787671637.5469148, "name": "dqn-vs-tabular", "params": {"episodes": 500}, "metrics": {"dqn": 1172.17, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1787671930.8838952, "name": "dqn-vs-tabular", "params": {"episodes": 800}, "metrics": {"dqn": 1475.46, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1787672088.0366228, "name": "dqn-vs-tabular", "params": {"episodes": 800}, "metrics": {"dqn": 890.37, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1787672118.4071825, "name": "energy-guarded", "params": {"cores": 2}, "metrics": {"energy_ws": 138353.7, "energy_wh": 38.4316, "p_idle": 25.0, "p_busy": 95.0}, "tags": {"phase": "tier3"}}
+{"ts": 1787672118.5484066, "name": "cluster-q", "params": {"nodes": 4, "jobs": 100}, "metrics": {"avg_wait": 0.063, "util": 1.527}, "tags": {"phase": "tier2"}}
+{"ts": 1787672118.548737, "name": "demo-guarded-run", "params": {"cores": 2, "delta": 1.0}, "metrics": {"composite_score": 561.5}, "tags": {"phase": "demo"}}
+{"ts": 1787672409.1111965, "name": "energy-guarded", "params": {"cores": 2}, "metrics": {"energy_ws": 138353.7, "energy_wh": 38.4316, "p_idle": 25.0, "p_busy": 95.0}, "tags": {"phase": "tier3"}}
+{"ts": 1787672409.2419891, "name": "cluster-q", "params": {"nodes": 4, "jobs": 100}, "metrics": {"avg_wait": 0.063, "util": 0.365}, "tags": {"phase": "tier2"}}
+{"ts": 1787672409.2423708, "name": "demo-guarded-run", "params": {"cores": 2, "delta": 1.0}, "metrics": {"composite_score": 561.5}, "tags": {"phase": "demo"}}
+{"ts": 1788065159.851791, "name": "energy-guarded", "params": {"cores": 2}, "metrics": {"energy_ws": 138353.7, "energy_wh": 38.4316, "p_idle": 25.0, "p_busy": 95.0}, "tags": {"phase": "tier3"}}
+{"ts": 1788065159.9810705, "name": "cluster-q", "params": {"nodes": 4, "jobs": 100}, "metrics": {"avg_wait": 0.099, "util": 0.365}, "tags": {"phase": "tier2"}}
+{"ts": 1788065159.9814734, "name": "demo-guarded-run", "params": {"cores": 2, "delta": 1.0}, "metrics": {"composite_score": 561.5}, "tags": {"phase": "demo"}}
+{"ts": 1789404308.967194, "name": "dqn-vs-tabular", "params": {"episodes": 600, "hidden": 128}, "metrics": {"dqn": 890.37, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1789404561.0075502, "name": "dqn-vs-tabular", "params": {"episodes": 600, "hidden": 128}, "metrics": {"dqn": 1512.25, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1789404622.557328, "name": "dqn-vs-tabular", "params": {"episodes": 600, "hidden": 128}, "metrics": {"dqn": 890.37, "tabular": 916.51}, "tags": {"phase": "tier1"}}
+{"ts": 1789405008.4828947, "name": "dqn-vs-tabular", "params": {"episodes": 600, "hidden": 128}, "metrics": {"dqn": 2370.29, "tabular": 2404.7}, "tags": {"phase": "tier1"}}
+{"ts": 1789527729.8761494, "name": "dqn-vs-tabular", "params": {"episodes": 400, "hidden": 128}, "metrics": {"dqn": 890.37, "tabular": 881.25}, "tags": {"phase": "tier1"}}
+{"ts": 1790229612.5097592, "name": "energy-guarded", "params": {"cores": 2}, "metrics": {"energy_ws": 136710.5, "energy_wh": 37.9751, "p_idle": 25.0, "p_busy": 95.0}, "tags": {"phase": "tier3"}}
+{"ts": 1790229612.6329153, "name": "cluster-q", "params": {"nodes": 4, "jobs": 100}, "metrics": {"avg_wait": 0.196, "util": 0.365}, "tags": {"phase": "tier2"}}
+{"ts": 1790229612.6332939, "name": "demo-guarded-run", "params": {"cores": 2, "delta": 1.0}, "metrics": {"composite_score": 627.46}, "tags": {"phase": "demo"}}

@@ -1,0 +1,8 @@
+{
+  "switch_w=1.0, blocking_w=0.03": 993.8,
+  "switch_w=1.0, blocking_w=0.01": 942.0,
+  "switch_w=1.0, blocking_w=0.06": 1039.8,
+  "switch_w=1.0, blocking_w=0.15": 1100.5,
+  "switch_w=0.5, blocking_w=0.03": 1003.5,
+  "switch_w=2.0, blocking_w=0.03": 1069.7
+}

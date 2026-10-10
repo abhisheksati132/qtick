@@ -1,0 +1,8 @@
+{
+  "finished_at": "2026-10-09T19:56:38",
+  "episodes": 200,
+  "tabular_episodes": null,
+  "cores": 2,
+  "delta": 1.0,
+  "source": "scripts/finetune_real.py"
+}

@@ -1,0 +1,27 @@
+{
+  "A: static q16 + FIFO": {
+    "mean": 947.5,
+    "std": 608.7,
+    "n": 30
+  },
+  "B: RL-QT only": {
+    "mean": 901.7,
+    "std": 564.9,
+    "n": 30
+  },
+  "C: dispatch only (EWMA)": {
+    "mean": 914.7,
+    "std": 601.8,
+    "n": 30
+  },
+  "D: dispatch + predictor": {
+    "mean": 880.6,
+    "std": 584.0,
+    "n": 30
+  },
+  "E: full (RL-QT + dispatch + predictor)": {
+    "mean": 812.5,
+    "std": 508.7,
+    "n": 30
+  }
+}

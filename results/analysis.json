@@ -1,0 +1,58 @@
+{
+  "pareto_frontier_wait_vs_energy": [
+    "RL-QT+RLD (Ours)",
+    "RR q64+RLD",
+    "DQN-QT+RLD (Ours)",
+    "DQN-QT"
+  ],
+  "regime_winners": {
+    "cpu=0.2/poisson": "MARL-Sched (2023)",
+    "cpu=0.5/burst": "RR q64+RLD",
+    "cpu=0.8/uniform": "RR q64+RLD"
+  },
+  "significant_wins_vs_q16": [
+    "DQN-QT+RLD (Ours) < RR q=16",
+    "RL-QT+RLD (Ours) < RR q=16",
+    "DRL-QT (2023) < RR q=16"
+  ],
+  "oracle_comparison": {
+    "DQN-QT+RLD (Ours) < RR-oracle-q": {
+      "p_value": 8.748398379054834e-07,
+      "significant_0.01": true,
+      "effect_r": 0.634,
+      "median_diff": 59.18
+    },
+    "RL-QT+RLD (Ours) < RR-oracle-q": {
+      "p_value": 3.110358992586271e-08,
+      "significant_0.01": true,
+      "effect_r": 0.701,
+      "median_diff": 116.14
+    },
+    "DQN-QT < RR-oracle-q": {
+      "p_value": 0.9999998173583405,
+      "significant_0.01": false,
+      "effect_r": 0.058,
+      "median_diff": -22.41
+    },
+    "RL-QT (tabular) < RR-oracle-q": {
+      "p_value": 0.9999960265161496,
+      "significant_0.01": false,
+      "effect_r": 0.597,
+      "median_diff": -22.62
+    },
+    "DRL-QT (2023) < RR-oracle-q": {
+      "p_value": 0.999808707345216,
+      "significant_0.01": false,
+      "effect_r": 0.487,
+      "median_diff": -12.66
+    }
+  },
+  "reward_sensitivity": {
+    "switch_w=1.0, blocking_w=0.03": 993.8,
+    "switch_w=1.0, blocking_w=0.01": 942.0,
+    "switch_w=1.0, blocking_w=0.06": 1039.8,
+    "switch_w=1.0, blocking_w=0.15": 1100.5,
+    "switch_w=0.5, blocking_w=0.03": 1003.5,
+    "switch_w=2.0, blocking_w=0.03": 1069.7
+  }
+}
