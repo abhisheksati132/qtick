@@ -155,8 +155,8 @@ def build_final_report():
             r.font.name = "Times New Roman"
             r.font.size = Pt(size)
 
-    def IEEE_EQUATION(omml_xml, eq_num_str):
-        """Creates an IEEE compliant equation line with centered math and right-aligned (N)"""
+    def IEEE_EQUATION(eq_img_name, eq_num_str, width=3.6):
+        """Creates an IEEE compliant equation line with centered math image and right-aligned (N)"""
         t = doc.add_table(rows=1, cols=2)
         t.alignment = WD_TABLE_ALIGNMENT.CENTER
         t.autofit = False
@@ -164,22 +164,27 @@ def build_final_report():
         r.cells[0].width = Inches(5.8)
         r.cells[1].width = Inches(0.7)
 
-        # Remove cell borders
+        # Remove cell borders and vertically center
         for cell in [r.cells[0], r.cells[1]]:
             tcPr = cell._tc.get_or_add_tcPr()
             tcBorders = parse_xml(f'<w:tcBorders {nsdecls("w")}><w:top w:val="none"/><w:left w:val="none"/><w:bottom w:val="none"/><w:right w:val="none"/></w:tcBorders>')
+            vAlign = parse_xml(f'<w:vAlign {nsdecls("w")} w:val="center"/>')
             tcPr.append(tcBorders)
+            tcPr.append(vAlign)
 
         p0 = r.cells[0].paragraphs[0]
         p0.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p0.paragraph_format.space_before = Pt(4)
-        p0.paragraph_format.space_after = Pt(4)
-        p0._p.append(parse_xml(omml_xml))
+        p0.paragraph_format.space_before = Pt(3)
+        p0.paragraph_format.space_after = Pt(3)
+        img_full_path = os.path.join(RES, "equations", eq_img_name)
+        if os.path.exists(img_full_path):
+            run0 = p0.add_run()
+            run0.add_picture(img_full_path, width=Inches(width))
 
         p1 = r.cells[1].paragraphs[0]
         p1.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        p1.paragraph_format.space_before = Pt(4)
-        p1.paragraph_format.space_after = Pt(4)
+        p1.paragraph_format.space_before = Pt(3)
+        p1.paragraph_format.space_after = Pt(3)
         r_num = p1.add_run(eq_num_str)
         r_num.font.name = "Times New Roman"
         r_num.font.size = Pt(10)
@@ -500,31 +505,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 1: State Transition
-    eq1_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>s</m:t></m:r>
-      <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> = </m:t></m:r>
-      <m:d><m:dPr><m:begChr m:val="⟨"/><m:endChr m:val="⟩"/></m:dPr><m:e>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>W̄</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>σ</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>B</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>N</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>q</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:f><m:num><m:r><m:t>δ</m:t></m:r></m:num><m:den><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>W̄</m:t></m:r><m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub></m:den></m:f>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>ρ</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>preempt</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>q</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t-1</m:t></m:r></m:sub></m:sSub>
-      </m:e></m:d>
-    </m:oMath>"""
-    IEEE_EQUATION(eq1_omml, "(1)")
+    # Equation 1: State Representation
+    IEEE_EQUATION("eq_1.png", "(1)", width=3.6)
 
     P(
         "Where W̄_t denotes the average remaining burst across active ready processes, σ_B represents the burst standard deviation (heterogeneity), "
@@ -539,44 +521,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 2: Bellman Equation
-    eq2_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>Q</m:t></m:r>
-      <m:sSup><m:e><m:r><m:t></m:t></m:r></m:e><m:sup><m:r><m:t>*</m:t></m:r></m:sup></m:sSup>
-      <m:d><m:e>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>s</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>a</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-      </m:e></m:d>
-      <m:r><m:t> = </m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="b"/></m:rPr><m:t>E</m:t></m:r>
-      <m:d><m:dPr><m:begChr m:val="["/><m:endChr m:val="]"/></m:dPr><m:e>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t> + </m:t></m:r>
-        <m:r><m:t>γ </m:t></m:r>
-        <m:r><m:t>max</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>a'</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t> </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>Q</m:t></m:r>
-        <m:sSup><m:e><m:r><m:t></m:t></m:r></m:e><m:sup><m:r><m:t>*</m:t></m:r></m:sup></m:sSup>
-        <m:d><m:e>
-          <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>s</m:t></m:r>
-          <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t+1</m:t></m:r></m:sub></m:sSub>
-          <m:r><m:t>, </m:t></m:r>
-          <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>a'</m:t></m:r>
-        </m:e></m:d>
-        <m:r><m:t> | </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>s</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t>, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>a</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-      </m:e></m:d>
-    </m:oMath>"""
-    IEEE_EQUATION(eq2_omml, "(2)")
+    # Equation 2: Bellman Optimality Equation
+    IEEE_EQUATION("eq_2.png", "(2)", width=4.0)
 
     P(
         "The DQN network utilizes two hidden layers of 64 neurons with ReLU activations and outputs 6 Q-values. "
@@ -591,19 +537,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 3: Composite Reward
-    eq3_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R(t)</m:t></m:r>
-      <m:r><m:t> = </m:t></m:r>
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>comp</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> + </m:t></m:r>
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>switch</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> + </m:t></m:r>
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>wait</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> + </m:t></m:r>
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>convoy</m:t></m:r></m:sub></m:sSub>
-    </m:oMath>"""
-    IEEE_EQUATION(eq3_omml, "(3)")
+    # Equation 3: Composite Reward
+    IEEE_EQUATION("eq_3.png", "(3)", width=3.2)
 
     P(
         "Where R_comp = +3.0 is awarded when a process finishes execution within its allocated quantum. "
@@ -611,17 +546,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 4: Switch Penalty
-    eq4_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>switch</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> = -</m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>β</m:t></m:r>
-      <m:r><m:t> · </m:t></m:r>
-      <m:d><m:e>
-        <m:f><m:num><m:r><m:t>δ</m:t></m:r></m:num><m:den><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>W̄</m:t></m:r><m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub></m:den></m:f>
-      </m:e></m:d>
-    </m:oMath>"""
-    IEEE_EQUATION(eq4_omml, "(4)")
+    # Equation 4: Switch Penalty
+    IEEE_EQUATION("eq_4.png", "(4)", width=2.0)
 
     P(
         "Here β = 1.8. R_wait = -1.0 · (∑ W_i / N_q) penalizes ready-queue latency accrual. "
@@ -629,22 +555,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 5: Convoy Penalty
-    eq5_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:sSub><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>R</m:t></m:r></m:e><m:sub><m:r><m:t>convoy</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> = -</m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>η</m:t></m:r>
-      <m:r><m:t> · max</m:t></m:r>
-      <m:d><m:e>
-        <m:r><m:t>0, </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>q</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>t</m:t></m:r></m:sub></m:sSub>
-        <m:r><m:t> - </m:t></m:r>
-        <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>B̂</m:t></m:r>
-        <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>short</m:t></m:r></m:sub></m:sSub>
-      </m:e></m:d>
-    </m:oMath>"""
-    IEEE_EQUATION(eq5_omml, "(5)")
+    # Equation 5: Convoy Penalty
+    IEEE_EQUATION("eq_5.png", "(5)", width=2.8)
 
     SUBSEC_HEADING("F. Lyapunov Stability & Safety Guardrails")
     P(
@@ -654,22 +566,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 6: Aging Bound
-    eq6_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:r><m:t>Age</m:t></m:r>
-      <m:d><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>p</m:t></m:r><m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>i</m:t></m:r></m:sub></m:sSub></m:e></m:d>
-      <m:r><m:t> = </m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>t</m:t></m:r>
-      <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>now</m:t></m:r></m:sub></m:sSub>
-      <m:r><m:t> - </m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>t</m:t></m:r>
-      <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>arrival</m:t></m:r></m:sub></m:sSub>
-      <m:d><m:e><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>p</m:t></m:r><m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>i</m:t></m:r></m:sub></m:sSub></m:e></m:d>
-      <m:r><m:t> ≤ </m:t></m:r>
-      <m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>τ</m:t></m:r>
-      <m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>starve</m:t></m:r></m:sub></m:sSub>
-    </m:oMath>"""
-    IEEE_EQUATION(eq6_omml, "(6)")
+    # Equation 6: Aging Bound
+    IEEE_EQUATION("eq_6.png", "(6)", width=3.0)
 
     # =========================================================================
     # SECTION IV: IMPLEMENTATION DETAILS & CLOUD TRACE PIPELINE
@@ -725,12 +623,8 @@ def build_final_report():
         align="j"
     )
 
-    # OMML Equation 7: Composite Metric
-    eq7_omml = """<m:oMath xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
-      <m:r><m:t>Composite = AWT + ATT + </m:t></m:r>
-      <m:f><m:num><m:r><m:t>δ · CS</m:t></m:r></m:num><m:den><m:r><m:rPr><m:scr m:val="roman"/><m:sty m:val="i"/></m:rPr><m:t>N</m:t></m:r><m:sSub><m:e><m:r><m:t></m:t></m:r></m:e><m:sub><m:r><m:t>cores</m:t></m:r></m:sub></m:sSub></m:den></m:f>
-    </m:oMath>"""
-    IEEE_EQUATION(eq7_omml, "(7)")
+    # Equation 7: Composite Metric
+    IEEE_EQUATION("eq_7.png", "(7)", width=3.2)
 
     P(
         "Where AWT is average waiting time, ATT is average turnaround time, CS is total context switches, and N_cores is the number of active CPU cores. "
