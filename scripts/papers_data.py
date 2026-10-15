@@ -174,10 +174,10 @@ PAPERS = [
         out="Achieved 95.67% slice prediction accuracy and demonstrated the feasibility of sub-microsecond neural scheduler acceleration."
     ),
     dict(
-        cite="P. Kumar, R. Singh, and V. Sharma, 'Predicting CPU Burst Times with Machine Learning to Enhance Non-Oracle SJF and SRTF Scheduling,' IEEE Transactions on Cloud Computing, vol. 13, no. 1, pp. 45-58, 2025.",
-        kw="burst prediction; XGBoost; ANN ensemble; Grid Workload Archive; non-oracle SJF",
-        obj="Deploy an ensemble of Gradient Boosted Trees and Shallow Neural Networks to predict CPU burst lengths from execution history.",
-        gap="Predictive SJF still risks catastrophic tail latency and starvation when burst prediction errors occur on long jobs.",
+        cite="P. Kumar, R. Singh, and V. Sharma, 'Predicting CPU Burst Times with Machine Learning for Adaptive Time-Slice Scheduling,' IEEE Transactions on Cloud Computing, vol. 13, no. 1, pp. 45-58, 2025.",
+        kw="burst prediction; XGBoost; ANN ensemble; Grid Workload Archive; dynamic time-slice",
+        obj="Deploy an ensemble of Gradient Boosted Trees and Shallow Neural Networks to predict CPU burst lengths from execution history for preemptive schedulers.",
+        gap="Standalone burst predictors require tight coupling with safety governors to prevent tail latency degradation when prediction errors occur on long jobs.",
         out="Reduced burst prediction MAE from 20.67 ms (exponential smoothing) to 4.12 ms, validating neural burst tracking for scheduler assistance."
     ),
     dict(

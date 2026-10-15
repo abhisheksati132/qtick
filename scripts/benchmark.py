@@ -150,15 +150,6 @@ def run_suite(n_episodes=50, n_cores=2, delta=1.0, qtable="results/qtable.pkl",
                      + delta * r.context_switches / max(n_cores, 1))
                 best = min(best, s)
             collect["scores"]["RR-oracle-q"].append(best)
-            
-            # Oracle SJF and SRTF (requires future knowledge)
-            r_sjf = simulate(procs, n_cores=n_cores, delta=delta, algorithm="SJF")
-            m_sjf = r_sjf.metrics()
-            collect.setdefault("oracle_sjf", []).append(m_sjf["avg_waiting"] + m_sjf["avg_turnaround"])
-            
-            r_srtf = simulate(procs, n_cores=n_cores, delta=delta, algorithm="SRTF")
-            m_srtf = r_srtf.metrics()
-            collect.setdefault("oracle_srtf", []).append(m_srtf["avg_waiting"] + m_srtf["avg_turnaround"] + delta * r_srtf.context_switches / max(n_cores, 1))
 
     rows = {}
     for name, runs in agg.items():
@@ -253,17 +244,11 @@ def main():
     table_rows = {n: r for n, r in rows.items() if "avg_waiting" in r}
     for name in sorted(table_rows, key=lambda n: table_rows[n]["composite_score"]):
         print(f"{name:<18}" + "".join(f"{table_rows[name][c]:>20.3f}" for c in cols))
-    if "RR-oracle-q" in rows or "oracle_sjf" in collect:
+    if "RR-oracle-q" in rows:
         print("\n" + "=" * 70)
-        print("  THEORETICAL ORACLE BOUNDS (Requires 100% Unknowable Future Prescience)")
+        print("  GRID SEARCH OPTIMAL (Per-trace optimal static quantum search)")
         print("=" * 70)
-        if "oracle_sjf" in collect:
-            print(f"  SJF (Oracle)*   : composite = {statistics.mean(collect['oracle_sjf']):.2f} (Assumes exact burst time known in advance)")
-        if "oracle_srtf" in collect:
-            print(f"  SRTF (Oracle)*  : composite = {statistics.mean(collect['oracle_srtf']):.2f} (Assumes exact remaining time known in advance)")
-        if "RR-oracle-q" in rows:
-            print(f"  RR-oracle-q*    : composite = {rows['RR-oracle-q']['composite_score']:.2f} (Per-trace optimal static quantum grid search)")
-        print("  * Included solely as theoretical ceiling references; not deployable in practice.")
+        print(f"  RR-oracle-q*    : composite = {rows['RR-oracle-q']['composite_score']:.2f}")
 
     with open("results/benchmark.json", "w") as f:
         json.dump(rows, f, indent=2)

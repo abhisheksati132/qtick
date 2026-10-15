@@ -80,13 +80,7 @@ def load_policies():
         "Static RR (q=8)":   ("RR", StaticQuantumPolicy(8.0), None),
     }
 
-    # Oracle theoretical upper bounds (kept distinct)
-    oracles = {
-        "SJF (Oracle)*":     ("SJF", None, None),
-        "SRTF (Oracle)*":    ("SRTF", None, None),
-    }
-
-    return policies, oracles
+    return policies
 
 
 def main():
@@ -95,7 +89,6 @@ def main():
     ap.add_argument("--cores", type=int, default=2)
     ap.add_argument("--delta", type=float, default=1.0)
     ap.add_argument("--traces", default=os.path.join(ROOT, "traces", "real", "*.csv"))
-    ap.add_argument("--include-oracles", action="store_true", help="Include oracle SJF/SRTF reference rows")
     args = ap.parse_args()
 
     files = sorted(glob.glob(args.traces))
@@ -109,10 +102,8 @@ def main():
     cloud_traces = [f for f in files if any(k in os.path.basename(f) for k in ["alibaba", "google", "azure"])]
     target_files = cloud_traces if cloud_traces else files
 
-    policies, oracles = load_policies()
+    policies = load_policies()
     eval_set = dict(policies)
-    if args.include_oracles:
-        eval_set.update(oracles)
 
     all_rows = {}
     print(f"\n=========================================================================================")

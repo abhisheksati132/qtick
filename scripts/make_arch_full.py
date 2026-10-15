@@ -75,8 +75,8 @@ def main():
           tcol=GREEN_TX)
     box(ax, 0.45, 11.88, 2.95, 0.95, "Synthetic traces",
         ["Gamma bursts, CPU/IO mixes", "20 / 50 / 80% CPU"])
-    box(ax, 3.52, 11.88, 2.95, 0.95, "Real traces",
-        ["NASA · KTH · CTC", "Parallel Workloads Archive"])
+    box(ax, 3.52, 11.88, 2.95, 0.95, "Cloud production traces",
+        ["Alibaba · Google Borg · Azure VM", "10,000+ Real Microservices"])
     box(ax, 6.6, 11.88, 2.95, 0.95, "Arrival patterns",
         ["Poisson / bursty / uniform"])
     arrow(ax, 5, 11.75, 5, 11.2, label="processes (arrival time, burst length)")
