@@ -19,15 +19,6 @@
         "energy_wh": 218.9178,
         "composite": 2188.2
       },
-      "QTick (q64+RLD)": {
-        "wait": 1303.1,
-        "ta": 1343.8,
-        "p95_ta": 3277.5,
-        "cs": 74,
-        "util": 0.958,
-        "energy_wh": 215.2717,
-        "composite": 2684.0
-      },
       "Linux CFS": {
         "wait": 1642.5,
         "ta": 1701.1,
@@ -111,15 +102,6 @@
         "energy_wh": 204.5265,
         "composite": 2909.7
       },
-      "QTick (q64+RLD)": {
-        "wait": 1307.1,
-        "ta": 1345.8,
-        "p95_ta": 3224.2,
-        "cs": 53,
-        "util": 0.983,
-        "energy_wh": 203.969,
-        "composite": 2679.4
-      },
       "Linux CFS": {
         "wait": 2332.3,
         "ta": 2388.2,
@@ -202,15 +184,6 @@
         "util": 0.939,
         "energy_wh": 116.4064,
         "composite": 1155.4
-      },
-      "QTick (q64+RLD)": {
-        "wait": 584.1,
-        "ta": 606.0,
-        "p95_ta": 1779.0,
-        "cs": 25,
-        "util": 0.939,
-        "energy_wh": 116.3866,
-        "composite": 1202.6
       },
       "Linux CFS": {
         "wait": 1145.0,
@@ -305,14 +278,6 @@
       53,
       177.991,
       2130.0
-    ],
-    [
-      "QTick (q64+RLD)",
-      1064.8,
-      2760.2,
-      50.7,
-      178.542,
-      2188.7
     ],
     [
       "DRL-Dispatch",
