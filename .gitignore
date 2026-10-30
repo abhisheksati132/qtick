@@ -4,4 +4,7 @@ results/qtable_test.pkl
 ~$*.docx
 .pytest_cache/
 *.egg-info/
-
+webapp/.kilo/
+*.bak
+.DS_Store
+Thumbs.db

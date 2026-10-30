@@ -10,7 +10,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
-    {name = "Abhishek", email = "abhis@example.com"}
+    {name = "Abhishek Sati", email = "abhisheksativit@gmail.com"},
+    {name = "Tanishtha Swami"}
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -27,14 +28,16 @@ dependencies = [
     "flask>=2.3",
     "matplotlib>=3.7",
     "numpy>=1.24",
+    "scipy>=1.10",
+    "python-docx>=1.0.0",
 ]
 [project.optional-dependencies]
 dev = ["pytest", "black", "ruff"]
 
 [project.urls]
-Homepage = "https://github.com/abhis/qtick"
-Repository = "https://github.com/abhis/qtick"
-Issues = "https://github.com/abhis/qtick/issues"
+Homepage = "https://github.com/abhisheksati132/qtick"
+Repository = "https://github.com/abhisheksati132/qtick"
+Issues = "https://github.com/abhisheksati132/qtick/issues"
 
 [project.entry-points]
 console_scripts = [
